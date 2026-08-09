@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#312e81] to-[#4c1d95] text-white selection:bg-pink-500 selection:text-white">
+      <div className="min-h-screen bg-gray-50 text-gray-800 selection:bg-blue-200 selection:text-gray-900">
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <Routes>
