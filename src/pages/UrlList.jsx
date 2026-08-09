@@ -25,12 +25,12 @@ const UrlList = () => {
       initial={{ opacity: 0, y: 20 }} 
       animate={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.5 }} 
-      className="bg-white p-6 rounded-lg shadow mt-6"
+      className="bg-white/10 backdrop-blur-lg border border-white/10 p-8 rounded-2xl shadow-xl mt-6"
     >
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">My URLs</h2>
+      <h2 className="text-3xl font-extrabold mb-8 text-white">My URLs</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead className="bg-gray-100 text-gray-600">
+        <table className="min-w-full bg-transparent">
+          <thead className="text-pink-300 border-b border-white/20">
             <tr>
               <th className="py-3 px-4 text-left font-semibold text-sm">Long URL</th>
               <th className="py-3 px-4 text-left font-semibold text-sm">Short URL</th>
@@ -38,20 +38,20 @@ const UrlList = () => {
               <th className="py-3 px-4 text-left font-semibold text-sm">Created At</th>
             </tr>
           </thead>
-          <tbody className="text-gray-600">
+          <tbody className="text-gray-100">
             {urls.map(url => (
               <motion.tr 
                 key={url._id} 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }}
-                whileHover={{ scale: 1.01, backgroundColor: "#f9fafb" }} 
-                className="border-b"
+                whileHover={{ scale: 1.01 }} 
+                className="border-b border-white/10 hover:bg-white/5 transition-colors"
               >
                 <td className="py-3 px-4 truncate max-w-xs" title={url.longUrl}>
-                  <a href={url.longUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{url.longUrl}</a>
+                  <a href={url.longUrl} target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 hover:underline transition-colors">{url.longUrl}</a>
                 </td>
                 <td className="py-3 px-4">
-                  <a href={`https://urlshortener-backend-mruz.onrender.com/api/url/${url.shortUrl}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  <a href={`https://urlshortener-backend-mruz.onrender.com/api/url/${url.shortUrl}`} target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 hover:underline transition-colors">
                     {`https://urlshortener-backend-mruz.onrender.com/api/url/${url.shortUrl}`}
                   </a>
                 </td>

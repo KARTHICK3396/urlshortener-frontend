@@ -36,34 +36,34 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md"
+            className="bg-[#1e1b4b] border border-white/20 p-8 rounded-2xl shadow-2xl w-full max-w-md"
           >
-        <h2 className="text-2xl font-bold mb-4">Create Short URL</h2>
+        <h2 className="text-2xl font-extrabold mb-6 text-white">Create Short URL</h2>
         {error && <div className="bg-red-100 text-red-700 p-2 rounded mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Long URL</label>
+          <div className="mb-6">
+            <label className="block text-gray-200 text-sm font-semibold mb-2">Long URL</label>
             <input
               type="url"
               required
-              className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl shadow-inner text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
               value={longUrl}
               onChange={(e) => setLongUrl(e.target.value)}
               placeholder="https://example.com/very/long/path"
             />
           </div>
-          <div className="flex justify-end gap-2">
+          <div className="flex justify-end gap-3 mt-8">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded"
+              className="px-5 py-2.5 text-gray-300 font-medium hover:bg-white/10 rounded-xl transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
+              className="px-5 py-2.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-purple-500/40 disabled:opacity-50 transition-all"
             >
               {loading ? 'Shortening...' : 'Shorten'}
             </button>
