@@ -68,9 +68,14 @@ const Register = () => {
             </div>
           </div>
           <div className="flex items-center justify-between mt-6">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition-colors" type="submit">
+            <motion.button 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 1.05 }} 
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition-colors" 
+              type="submit"
+            >
               Register
-            </button>
+            </motion.button>
           </div>
           <div className="mt-4 text-center">
             <Link to="/login" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Already have an account? Login</Link>

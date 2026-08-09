@@ -68,7 +68,7 @@ const Dashboard = () => {
         <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
         <motion.button
           whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileTap={{ scale: 1.05 }}
           onClick={() => setIsModalOpen(true)}
           className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
         >

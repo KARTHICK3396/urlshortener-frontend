@@ -25,12 +25,12 @@ const Navbar = () => {
             <>
               <Link to="/dashboard" className="text-gray-600 hover:text-blue-600 mx-4 font-medium transition-colors">Dashboard</Link>
               <Link to="/urls" className="text-gray-600 hover:text-blue-600 mx-4 font-medium transition-colors">My URLs</Link>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleLogout} className="bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200 px-5 py-2 rounded-lg font-semibold ml-4 transition-colors">Logout</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 1.05 }} onClick={handleLogout} className="bg-blue-600 text-white hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold ml-4 transition-colors shadow-sm">Logout</motion.button>
             </>
           ) : (
             <>
               <Link to="/login" className="text-gray-600 hover:text-blue-600 mx-4 font-medium transition-colors">Login</Link>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block ml-4">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1.05 }} className="inline-block ml-4">
                 <Link to="/register" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Register</Link>
               </motion.div>
             </>

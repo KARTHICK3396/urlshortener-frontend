@@ -53,20 +53,24 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
             />
           </div>
           <div className="flex justify-end gap-3 mt-8">
-            <button
+            <motion.button
               type="button"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 1.05 }}
               onClick={onClose}
               className="px-4 py-2 text-gray-600 font-medium hover:bg-gray-100 rounded-lg transition-colors"
             >
               Cancel
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               type="submit"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 1.05 }}
               disabled={loading}
               className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
             >
               {loading ? 'Shortening...' : 'Shorten'}
-            </button>
+            </motion.button>
           </div>
           </form>
           </motion.div>
