@@ -36,17 +36,17 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white p-6 rounded-xl shadow-xl w-full max-w-md"
+            className="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-xl w-full max-w-md"
           >
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">Create Short URL</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Create Short URL</h2>
         {error && <div className="bg-red-100 text-red-700 p-2 rounded mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Long URL</label>
+            <label className="block text-gray-300 text-sm font-bold mb-2">Long URL</label>
             <input
               type="url"
               required
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white placeholder-gray-400 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               value={longUrl}
               onChange={(e) => setLongUrl(e.target.value)}
               placeholder="https://example.com/very/long/path"
@@ -58,7 +58,7 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 1.05 }}
               onClick={onClose}
-              className="px-4 py-2 text-gray-600 font-medium hover:bg-gray-100 rounded-lg transition-colors"
+              className="px-4 py-2 text-gray-300 font-medium hover:bg-gray-700 rounded-lg transition-colors"
             >
               Cancel
             </motion.button>

@@ -65,7 +65,7 @@ const Dashboard = () => {
       className="py-6 max-w-6xl mx-auto"
     >
       <div className="flex justify-between items-center mb-10">
-        <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
+        <h1 className="text-3xl font-bold text-white">Dashboard</h1>
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 1.05 }}
@@ -77,41 +77,41 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-        <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
-          <h3 className="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-2">Total URLs</h3>
-          <p className="text-3xl font-bold text-gray-800">{stats.totalUrls}</p>
+        <motion.div whileHover={{ y: -5 }} className="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-sm">
+          <h3 className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Total URLs</h3>
+          <p className="text-3xl font-bold text-white">{stats.totalUrls}</p>
         </motion.div>
-        <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
-          <h3 className="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-2">Created Today</h3>
-          <p className="text-3xl font-bold text-gray-800">{stats.urlsCreatedToday}</p>
+        <motion.div whileHover={{ y: -5 }} className="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-sm">
+          <h3 className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Created Today</h3>
+          <p className="text-3xl font-bold text-white">{stats.urlsCreatedToday}</p>
         </motion.div>
-        <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
-          <h3 className="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-2">Created This Month</h3>
-          <p className="text-3xl font-bold text-gray-800">{stats.urlsCreatedThisMonth}</p>
+        <motion.div whileHover={{ y: -5 }} className="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-sm">
+          <h3 className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Created This Month</h3>
+          <p className="text-3xl font-bold text-white">{stats.urlsCreatedThisMonth}</p>
         </motion.div>
-        <motion.div whileHover={{ y: -5 }} className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
-          <h3 className="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-2">Total Clicks</h3>
-          <p className="text-3xl font-bold text-gray-800">{stats.totalClicks}</p>
+        <motion.div whileHover={{ y: -5 }} className="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-sm">
+          <h3 className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Total Clicks</h3>
+          <p className="text-3xl font-bold text-white">{stats.totalClicks}</p>
         </motion.div>
       </div>
 
-      <div className="bg-white border border-gray-200 p-8 rounded-xl shadow-sm">
-        <h2 className="text-xl font-bold mb-6 text-gray-800">URLs Created This Month</h2>
+      <div className="bg-gray-800 border border-gray-700 p-8 rounded-xl shadow-sm">
+        <h2 className="text-xl font-bold mb-6 text-white">URLs Created This Month</h2>
         <div className="h-72">
           {Object.keys(stats.dailyCounts).length > 0 ? (
             <Bar 
               options={{ 
                 maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#374151' } } },
+                plugins: { legend: { labels: { color: '#9CA3AF' } } },
                 scales: {
-                  x: { ticks: { color: '#4B5563' }, grid: { color: 'rgba(0,0,0,0.05)' } },
-                  y: { ticks: { color: '#4B5563' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+                  x: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                  y: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(255,255,255,0.05)' } }
                 }
               }} 
               data={chartData} 
             />
           ) : (
-            <p className="text-gray-500 flex items-center justify-center h-full text-lg">No URLs created this month.</p>
+            <p className="text-gray-400 flex items-center justify-center h-full text-lg">No URLs created this month.</p>
           )}
         </div>
       </div>
