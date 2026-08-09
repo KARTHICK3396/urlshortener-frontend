@@ -8,7 +8,7 @@ const UrlList = () => {
     const fetchUrls = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/url', {
+        const res = await axios.get('https://urlshortener-backend-mruz.onrender.com/api/url', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUrls(res.data);
@@ -39,8 +39,8 @@ const UrlList = () => {
                   <a href={url.longUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{url.longUrl}</a>
                 </td>
                 <td className="py-3 px-4">
-                  <a href={`http://localhost:5000/api/url/${url.shortUrl}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    {`http://localhost:5000/api/url/${url.shortUrl}`}
+                  <a href={`https://urlshortener-backend-mruz.onrender.com/api/url/${url.shortUrl}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    {`https://urlshortener-backend-mruz.onrender.com/api/url/${url.shortUrl}`}
                   </a>
                 </td>
                 <td className="py-3 px-4">{url.clicks}</td>

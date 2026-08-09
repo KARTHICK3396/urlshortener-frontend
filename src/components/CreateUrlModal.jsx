@@ -15,7 +15,7 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/url', { longUrl }, {
+      await axios.post('https://urlshortener-backend-mruz.onrender.com/api/url', { longUrl }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('URL Shortened Successfully!');

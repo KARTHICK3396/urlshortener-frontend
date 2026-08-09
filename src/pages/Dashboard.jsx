@@ -28,7 +28,7 @@ const Dashboard = () => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/url/dashboard', {
+      const res = await axios.get('https://urlshortener-backend-mruz.onrender.com/api/url/dashboard', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setStats(res.data);

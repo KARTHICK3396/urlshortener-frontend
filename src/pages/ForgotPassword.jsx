@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     setMessage('');
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+      const res = await axios.post('https://urlshortener-backend-mruz.onrender.com/api/auth/forgot-password', { email });
       setMessage(res.data.message);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to send reset link');

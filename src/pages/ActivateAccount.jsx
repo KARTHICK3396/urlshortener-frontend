@@ -10,7 +10,7 @@ const ActivateAccount = () => {
   useEffect(() => {
     const activate = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/auth/activate/${token}`);
+        const res = await axios.get(`https://urlshortener-backend-mruz.onrender.com/api/auth/activate/${token}`);
         setMessage(res.data.message);
       } catch (err) {
         setError(err.response?.data?.message || 'Activation failed');

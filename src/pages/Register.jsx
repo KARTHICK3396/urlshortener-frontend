@@ -17,7 +17,7 @@ const Register = () => {
     setMessage('');
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post('https://urlshortener-backend-mruz.onrender.com/api/auth/register', formData);
       setMessage(res.data.message);
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
