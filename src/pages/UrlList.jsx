@@ -115,11 +115,11 @@ const UrlList = () => {
                   </td>
                   <td className="py-3 px-4">{url.clicks}</td>
                   <td className="py-3 px-4">{new Date(url.createdAt).toLocaleDateString()}</td>
-                  <td className="py-3 px-4 flex justify-center gap-3 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
-                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => handleCopy(url.shortUrl)} className="text-gray-400 hover:text-white transition-colors text-sm font-semibold" title="Copy URL">
+                  <td className="py-3 px-4 flex justify-center gap-2">
+                    <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => handleCopy(url.shortUrl)} className="bg-blue-600 text-white hover:bg-blue-700 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors shadow-sm" title="Copy URL">
                       Copy
                     </motion.button>
-                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => handleDelete(url._id)} className="text-gray-400 hover:text-red-400 transition-colors text-sm font-semibold" title="Delete URL">
+                    <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => handleDelete(url._id)} className="bg-blue-600 text-white hover:bg-blue-700 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors shadow-sm" title="Delete URL">
                       Delete
                     </motion.button>
                   </td>

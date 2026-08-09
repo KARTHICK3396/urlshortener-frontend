@@ -48,6 +48,8 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
             <input
               type="url"
               required
+              pattern="https?://.+"
+              title="Include http:// or https://"
               className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white placeholder-gray-400 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               value={longUrl}
               onChange={(e) => setLongUrl(e.target.value)}
