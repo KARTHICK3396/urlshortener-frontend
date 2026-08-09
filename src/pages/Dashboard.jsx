@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import CreateUrlModal from '../components/CreateUrlModal';
+import { motion } from 'framer-motion';
 
 ChartJS.register(
   CategoryScale,
@@ -57,7 +58,11 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
         <button
@@ -69,22 +74,22 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white p-6 rounded-lg shadow">
+        <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-gray-500 text-sm font-semibold uppercase">Total URLs</h3>
           <p className="text-3xl font-bold text-gray-800">{stats.totalUrls}</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        </motion.div>
+        <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-gray-500 text-sm font-semibold uppercase">Created Today</h3>
           <p className="text-3xl font-bold text-gray-800">{stats.urlsCreatedToday}</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        </motion.div>
+        <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-gray-500 text-sm font-semibold uppercase">Created This Month</h3>
           <p className="text-3xl font-bold text-gray-800">{stats.urlsCreatedThisMonth}</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        </motion.div>
+        <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-gray-500 text-sm font-semibold uppercase">Total Clicks</h3>
           <p className="text-3xl font-bold text-gray-800">{stats.totalClicks}</p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow">
@@ -103,7 +108,7 @@ const Dashboard = () => {
         onClose={() => setIsModalOpen(false)}
         onSuccess={fetchStats}
       />
-    </div>
+    </motion.div>
   );
 };
 

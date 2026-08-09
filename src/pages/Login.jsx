@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -22,7 +23,12 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden mt-10">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.5 }} 
+      className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden mt-10"
+    >
       <div className="px-6 py-8">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Login</h2>
         {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
@@ -54,7 +60,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

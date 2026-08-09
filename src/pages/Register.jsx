@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,12 @@ const Register = () => {
   const handleChange = (e) => setFormData({ ...formData, [e.target.id]: e.target.value });
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden mt-10">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.5 }} 
+      className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden mt-10"
+    >
       <div className="px-6 py-8">
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Register</h2>
         {message && <div className="bg-green-100 text-green-700 p-3 rounded mb-4">{message}</div>}
@@ -71,7 +77,7 @@ const Register = () => {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

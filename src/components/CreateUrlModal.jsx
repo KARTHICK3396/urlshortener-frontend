@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
   const [longUrl, setLongUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  if (!isOpen) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,8 +29,15 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md"
+          >
         <h2 className="text-2xl font-bold mb-4">Create Short URL</h2>
         {error && <div className="bg-red-100 text-red-700 p-2 rounded mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
@@ -62,9 +68,11 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
               {loading ? 'Shortening...' : 'Shorten'}
             </button>
           </div>
-        </form>
-      </div>
-    </div>
+          </form>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 };
 

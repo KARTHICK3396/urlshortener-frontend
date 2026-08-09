@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const UrlList = () => {
   const [urls, setUrls] = useState([]);
@@ -20,7 +21,12 @@ const UrlList = () => {
   }, []);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow mt-6">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.5 }} 
+      className="bg-white p-6 rounded-lg shadow mt-6"
+    >
       <h2 className="text-2xl font-bold mb-6 text-gray-800">My URLs</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white">
@@ -34,7 +40,13 @@ const UrlList = () => {
           </thead>
           <tbody className="text-gray-600">
             {urls.map(url => (
-              <tr key={url._id} className="border-b hover:bg-gray-50">
+              <motion.tr 
+                key={url._id} 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.01, backgroundColor: "#f9fafb" }} 
+                className="border-b"
+              >
                 <td className="py-3 px-4 truncate max-w-xs" title={url.longUrl}>
                   <a href={url.longUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{url.longUrl}</a>
                 </td>
@@ -45,7 +57,7 @@ const UrlList = () => {
                 </td>
                 <td className="py-3 px-4">{url.clicks}</td>
                 <td className="py-3 px-4">{new Date(url.createdAt).toLocaleDateString()}</td>
-              </tr>
+              </motion.tr>
             ))}
             {urls.length === 0 && (
               <tr>
@@ -55,7 +67,7 @@ const UrlList = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
