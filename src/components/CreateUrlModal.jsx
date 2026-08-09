@@ -4,25 +4,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
   const [longUrl, setLongUrl] = useState('');
+  const [customAlias, setCustomAlias] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('https://urlshortener-backend-mruz.onrender.com/api/url', { longUrl }, {
+      await axios.post('https://urlshortener-backend-mruz.onrender.com/api/url', { 
+        longUrl,
+        customAlias: customAlias.trim() !== '' ? customAlias.trim() : undefined
+      }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('URL Shortened Successfully!');
       setLongUrl('');
+      setCustomAlias('');
       onSuccess();
       onClose();
     } catch (err) {
-      setError(err.response?.data?.message || 'Something went wrong');
+      alert(err.response?.data?.message || 'Something went wrong');
     } finally {
       setLoading(false);
     }
@@ -39,9 +42,8 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
             className="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-xl w-full max-w-md"
           >
         <h2 className="text-2xl font-bold mb-4 text-white">Create Short URL</h2>
-        {error && <div className="bg-red-100 text-red-700 p-2 rounded mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-gray-300 text-sm font-bold mb-2">Long URL</label>
             <input
               type="url"
@@ -50,6 +52,16 @@ const CreateUrlModal = ({ isOpen, onClose, onSuccess }) => {
               value={longUrl}
               onChange={(e) => setLongUrl(e.target.value)}
               placeholder="https://example.com/very/long/path"
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-300 text-sm font-bold mb-2">Custom Alias (Optional)</label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white placeholder-gray-400 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              value={customAlias}
+              onChange={(e) => setCustomAlias(e.target.value)}
+              placeholder="my-custom-name"
             />
           </div>
           <div className="flex justify-end gap-3 mt-8">
